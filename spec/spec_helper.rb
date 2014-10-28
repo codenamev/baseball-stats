@@ -1,6 +1,7 @@
 ENV["APP_ENV"] ||= 'test'
 require 'rubygems'
 require 'active_record'
+require 'shoulda/matchers'
 
 $LOAD_PATH << 'lib'
 require 'baseball_stats'

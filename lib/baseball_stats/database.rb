@@ -5,24 +5,28 @@ require 'logger'
 require 'yaml'
 
 module BaseballStats::Database
+  include ActiveRecord::Tasks
+
+  DEFAULT_ENV = "development".freeze
+
   @env              = nil
   @logger           = nil
-  @config           = {}
   @connection       = nil
-  @root_path        = nil
-  @db_dir           = nil
-  @migrations_paths = nil
+  @configuration    = YAML::load(IO.read('db/config.yml')).freeze
+  @root_path        = File.expand_path('../../..', __FILE__).freeze
+  @db_dir           = File.join(@root_path, 'db').freeze
+  @migrations_paths = [File.join(@root_path, 'db/migrate')].freeze
+
+  attr_accessor :configuration, :db_dir, :migrations_paths
 
   extend self
 
-  def connection
-    @env             = ENV['APP_ENV'] ||= 'development'
-    @config          = YAML::load(IO.read('config/database.yml'))
-    @root_path       = File.expand_path '../../..', __FILE__
-    @db_dir          = File.join @root_path, 'db'
-    @migration_paths = [File.join(@root_path, 'db/migrate')]
+  def env
+    @env = ENV['APP_ENV'] || DEFAULT_ENV
+  end
 
-    ::ActiveRecord::Base.logger = Logger.new("log/#{@env}.log")
-    ::ActiveRecord::Base.establish_connection(@config[@env])
+  def connection
+    ::ActiveRecord::Base.logger = Logger.new("log/#{self.env}.log")
+    ::ActiveRecord::Base.establish_connection(configuration[self.env])
   end
 end

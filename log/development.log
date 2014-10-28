@@ -1,0 +1,196 @@
+# Logfile created on 2014-10-28 11:42:36 -0400 by logger.rb/44203
+D, [2014-10-28T13:34:17.936226 #80239] DEBUG -- :   [1m[36m (1.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2014-10-28T13:34:17.969319 #80239] DEBUG -- :   [1m[35m (0.1ms)[0m  select sqlite_version(*)
+D, [2014-10-28T13:34:17.971590 #80239] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2014-10-28T13:36:22.190033 #80378] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:52:53.556685 #81487] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:52:53.577169 #81487] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:52:53.577871 #81487] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:52:53.578676 #81487] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:52:53.579522 #81487] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:52:53.580274 #81487] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:52:53.581167 #81487] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:52:53.581977 #81487] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:55:15.005251 #81667] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2014-10-28T13:55:15.006069 #81667]  INFO -- : Migrating to CreateBattings (20141028175417)
+D, [2014-10-28T13:55:15.006428 #81667] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-10-28T13:55:15.032894 #81667] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mCREATE TABLE "battings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" varchar(255), "year_id" integer, "league" varchar(255), "team_id" varchar(255), "appearances" varchar(255), "at_bats" integer, "hits" integer, "doubles" integer, "triples" integer, "home_runs" integer, "runs_batted_in" integer, "stolen_bases" integer, "times_caught_stealing" integer) [0m
+D, [2014-10-28T13:55:15.033090 #81667] DEBUG -- :   [1m[35m (0.0ms)[0m  select sqlite_version(*)
+D, [2014-10-28T13:55:15.033395 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_battings_on_player_id" ON "battings" ("player_id")[0m
+D, [2014-10-28T13:55:15.033725 #81667] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+
+D, [2014-10-28T13:55:15.033993 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_battings_on_year_id" ON "battings" ("year_id")[0m
+D, [2014-10-28T13:55:15.046561 #81667] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141028175417"]]
+D, [2014-10-28T13:55:15.048575 #81667] DEBUG -- :   [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+D, [2014-10-28T13:55:15.051125 #81667] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:55:15.052457 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:15.052701 #81667] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+
+D, [2014-10-28T13:55:15.070989 #81667] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:55:15.072369 #81667] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+
+D, [2014-10-28T13:55:15.072626 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:15.073711 #81667] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:55:15.074883 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:15.075155 #81667] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+
+D, [2014-10-28T13:55:15.076058 #81667] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:55:15.077260 #81667] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+
+D, [2014-10-28T13:55:15.077520 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:15.078363 #81667] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:55:15.078818 #81667] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:55:15.079985 #81667] DEBUG -- :   [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+
+D, [2014-10-28T13:55:15.080236 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:15.081265 #81667] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:55:15.082367 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:15.082601 #81667] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+
+D, [2014-10-28T13:55:15.083544 #81667] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2014-10-28T13:55:15.084634 #81667] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+
+D, [2014-10-28T13:55:15.084879 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:15.085839 #81667] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+D, [2014-10-28T13:55:15.086960 #81667] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_year_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:15.087200 #81667] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+
+D, [2014-10-28T13:55:33.115138 #81697] DEBUG -- :   [1m[36m (1.5ms)[0m  [1mCREATE TABLE "battings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" varchar(255), "year_id" integer, "league" varchar(255), "team_id" varchar(255), "appearances" varchar(255), "at_bats" integer, "hits" integer, "doubles" integer, "triples" integer, "home_runs" integer, "runs_batted_in" integer, "stolen_bases" integer, "times_caught_stealing" integer) [0m
+D, [2014-10-28T13:55:33.125006 #81697] DEBUG -- :   [1m[35m (0.1ms)[0m  select sqlite_version(*)
+D, [2014-10-28T13:55:33.126709 #81697] DEBUG -- :   [1m[36m (1.4ms)[0m  [1mCREATE  INDEX "index_battings_on_player_id" ON "battings" ("player_id")[0m
+D, [2014-10-28T13:55:33.127080 #81697] DEBUG -- :   [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+
+D, [2014-10-28T13:55:33.128677 #81697] DEBUG -- :   [1m[36m (1.3ms)[0m  [1mCREATE  INDEX "index_battings_on_year_id" ON "battings" ("year_id")[0m
+D, [2014-10-28T13:55:33.133205 #81697] DEBUG -- :   [1m[35m (1.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2014-10-28T13:55:33.134854 #81697] DEBUG -- :   [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2014-10-28T13:55:33.135042 #81697] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+D, [2014-10-28T13:55:33.136897 #81697] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141028175417')[0m
+D, [2014-10-28T13:55:33.154576 #81697] DEBUG -- :   [1m[35m (17.0ms)[0m  DROP TABLE "battings"
+D, [2014-10-28T13:55:33.156591 #81697] DEBUG -- :   [1m[36m (1.8ms)[0m  [1mCREATE TABLE "battings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" varchar(255), "year_id" integer, "league" varchar(255), "team_id" varchar(255), "appearances" varchar(255), "at_bats" integer, "hits" integer, "doubles" integer, "triples" integer, "home_runs" integer, "runs_batted_in" integer, "stolen_bases" integer, "times_caught_stealing" integer) [0m
+D, [2014-10-28T13:55:33.158763 #81697] DEBUG -- :   [1m[35m (1.9ms)[0m  CREATE  INDEX "index_battings_on_player_id" ON "battings" ("player_id")
+D, [2014-10-28T13:55:33.159117 #81697] DEBUG -- :   [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_battings_on_player_id' AND type='index'
+[0m
+D, [2014-10-28T13:55:33.160897 #81697] DEBUG -- :   [1m[35m (1.6ms)[0m  CREATE  INDEX "index_battings_on_year_id" ON "battings" ("year_id")
+D, [2014-10-28T13:55:33.161203 #81697] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
