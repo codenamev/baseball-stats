@@ -1,5 +1,5 @@
 class CreateBattings < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :battings do |t|
       t.string :player_id
       t.integer :year_id
@@ -7,6 +7,7 @@ class CreateBattings < ActiveRecord::Migration
       t.string :team_id
       t.string :appearances
       t.integer :at_bats
+      t.integer :runs_scored
       t.integer :hits
       t.integer :doubles
       t.integer :triples
@@ -18,5 +19,9 @@ class CreateBattings < ActiveRecord::Migration
 
     add_index :battings, :player_id
     add_index :battings, :year_id
+  end
+
+  def self.down
+    drop_table :battings
   end
 end
