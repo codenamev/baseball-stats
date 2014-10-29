@@ -1,0 +1,3 @@
+"player_id","year_id","league","team_id","appearances","at_bats","runs_scored","hits","doubles","triples","home_runs","runs_batted_in","stolen_bases","times_caught_stealing"
+"abreubo01",2008,"AL","NYA",156,609,100,180,39,4,20,100,22,11
+"chucknorris",2007,"AL","NYA",100000,100000,100000,100000,100000,100000,100000,100000,250000,0
