@@ -3,6 +3,7 @@ require 'rubygems'
 require 'active_record'
 require 'shoulda/matchers'
 require 'database_cleaner'
+require 'factory_girl'
 
 $LOAD_PATH << 'lib'
 require 'baseball_stats'

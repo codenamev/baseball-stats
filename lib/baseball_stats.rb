@@ -12,4 +12,13 @@ module BaseballStats
   include Database
 
   extend self
+
+  def most_improved_player(year_range)
+  end
+
+  def slugging_percentage_for_team(team_id)
+  end
+
+  def tripple_crown_winner(year, league)
+  end
 end

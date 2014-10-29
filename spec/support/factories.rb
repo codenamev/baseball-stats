@@ -11,7 +11,7 @@ FactoryGirl.define do
     'A'.next
   end
 
-  factory :batting do
+  factory :batting, class: BaseballStats::Batting do
     player_id             { generate(:player) }
     year_id               { generate(:year) }
     league                { generate(:league) }
