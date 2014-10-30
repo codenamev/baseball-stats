@@ -4,9 +4,9 @@ require 'sqlite3'
 require 'colorize'
 require 'table_print'
 
+require "baseball_stats/database"
 require "baseball_stats/batting"
 require "baseball_stats/player"
-require "baseball_stats/database"
 require "baseball_stats/import"
 require "baseball_stats/version"
 
@@ -24,7 +24,8 @@ module BaseballStats
     most_improved_player          = nil
 
     battings_for_year.each do |batting|
-      improvement = batting.batting_average - battings_for_previous_year.where(player_id: batting.player_id).first.batting_average
+      next unless prev_year_batting = battings_for_previous_year.where(player_id: batting.player_id).first
+      improvement = batting.batting_average - prev_year_batting.batting_average
       next unless improvement > most_improved_batting_average
       most_improved_batting_average = batting.batting_average
       most_improved_player = batting.player_id
@@ -36,7 +37,7 @@ module BaseballStats
   def slugging_percentage_for_team_and_year(team_id, year)
     battings_for_team = Batting.includes(:player).with_slugging_percentage.where(team_id: team_id, year_id: year)
     battings_for_team.collect {|batting|
-      { player: batting.player_name, slugging_percentage: batting.slugging_percentage }
+      { player: batting.player_name, slugging_percentage: "#{(batting.slugging_percentage.to_f * 100).round(2)}%" }
     }
   end
 

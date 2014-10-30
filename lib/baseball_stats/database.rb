@@ -4,29 +4,31 @@ require 'sqlite3'
 require 'logger'
 require 'yaml'
 
-module BaseballStats::Database
-  include ActiveRecord::Tasks
+module BaseballStats
+  module Database
+    include ActiveRecord::Tasks
 
-  DEFAULT_ENV = "development".freeze
+    DEFAULT_ENV = "development".freeze
 
-  @env              = nil
-  @logger           = nil
-  @connection       = nil
-  @configuration    = YAML::load(IO.read('db/config.yml')).freeze
-  @root_path        = File.expand_path('../../..', __FILE__).freeze
-  @db_dir           = File.join(@root_path, 'db').freeze
-  @migrations_paths = [File.join(@root_path, 'db/migrate')].freeze
+    @env              = nil
+    @logger           = nil
+    @connection       = nil
+    @configuration    = YAML::load(IO.read('db/config.yml')).freeze
+    @root_path        = File.expand_path('../../..', __FILE__).freeze
+    @db_dir           = File.join(@root_path, 'db').freeze
+    @migrations_paths = [File.join(@root_path, 'db/migrate')].freeze
 
-  attr_accessor :configuration, :db_dir, :migrations_paths
+    attr_accessor :configuration, :db_dir, :migrations_paths
 
-  extend self
+    extend self
 
-  def env
-    @env = ENV['APP_ENV'] || DEFAULT_ENV
-  end
+    def env
+      @env = ENV['APP_ENV'] || DEFAULT_ENV
+    end
 
-  def connection
-    ::ActiveRecord::Base.logger = Logger.new("log/#{self.env}.log")
-    ::ActiveRecord::Base.establish_connection(configuration[self.env])
+    def connection
+      ::ActiveRecord::Base.logger = Logger.new("log/#{self.env}.log")
+      ::ActiveRecord::Base.establish_connection(configuration[self.env])
+    end
   end
 end

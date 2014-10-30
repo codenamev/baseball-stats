@@ -4,6 +4,7 @@ describe BaseballStats do
   it { should respond_to :import_battings_from_csv }
   it { should respond_to :env }
   it { should respond_to :connection }
+  it { should respond_to :seed_data }
 
   describe '.most_improved_player(year)' do
     let(:year)                     { 2014 }
@@ -50,9 +51,9 @@ describe BaseballStats do
 
     it 'returns an array of hashes for every player for the team for that year and their associated slugging percentage' do
       expect(subject).to eq([
-        { player: player1.name, slugging_percentage: 0.22 },
-        { player: player2.name, slugging_percentage: 0.44 },
-        { player: player3.name, slugging_percentage: 0.68 }
+        { player: player1.name, slugging_percentage: "22.0%" },
+        { player: player2.name, slugging_percentage: "44.0%" },
+        { player: player3.name, slugging_percentage: "68.0%" }
       ])
     end
   end
