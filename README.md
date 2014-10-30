@@ -26,6 +26,11 @@ display the results to the following excersize:
 3. Who was the AL and NL tripple crown winner for 2011 and 2012.  If no one won
    the crown should be "(No winner)"
 
+## Running tests
+
+1. `bundle exec rake db:migrate db:test:prepare`
+2. `rake`
+
 ## NOTES
 
 The first run of the command imports two fairly large CSV files with sample
