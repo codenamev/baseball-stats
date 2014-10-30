@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'baseball_stats'
+
+puts "1) Most improved batting average from 2009 to 2010: ".colorize(:green)
+puts "\t#{BaseballStats.most_improved_player(2010)}\n"
+
+puts "2) Slugging percentage for all players on the Oakland A's in 2007:".colorize(:green)
+tp BaseballStats.slugging_percentage_for_team_and_year('OAK', 2007)
+
+puts "\n3) AL Tripple crown winner for 2011: ".colorize(:green)
+puts "\t#{BaseballStats.tripple_crown_winner(2011, 'AL')}\n"
+
+puts "\n3) AL Tripple crown winner for 2012: ".colorize(:green)
+puts "\t#{BaseballStats.tripple_crown_winner(2012, 'AL')}\n"
+
+puts "\n3) NL Tripple crown winner for 2011: ".colorize(:green)
+puts "\t#{BaseballStats.tripple_crown_winner(2011, 'NL')}\n"
+
+puts "\n3) NL Tripple crown winner for 2012: ".colorize(:green)
+puts "\t#{BaseballStats.tripple_crown_winner(2012, 'NL')}\n"

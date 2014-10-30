@@ -1,7 +1,16 @@
 require 'spec_helper'
 
 describe BaseballStats::Import do
-  context '.import_battings_from_csv(csv_file)' do
+  describe '.seed_data' do
+    subject { BaseballStats::Import.seed_data }
+    it "imports both sample battings and players" do
+      BaseballStats::Import.should_receive(:import_battings_from_csv).with(BaseballStats::Import::SEED_BATTINGS_CSV)
+      BaseballStats::Import.should_receive(:import_players_from_csv).with(BaseballStats::Import::SEED_PLAYERS_CSV)
+      subject
+    end
+  end
+
+  describe '.import_battings_from_csv(csv_file)' do
     let(:csv_file)          { File.expand_path('spec/fixtures/batting.csv') }
     let(:csv_file_with_dup) { File.expand_path('spec/fixtures/batting_with_existing.csv') }
     subject                 { BaseballStats::Import.import_battings_from_csv(csv_file) }
@@ -32,7 +41,7 @@ describe BaseballStats::Import do
     end
   end
 
-  context '.import_players_from_csv(csv_file)' do
+  describe '.import_players_from_csv(csv_file)' do
     let(:csv_file)          { File.expand_path('spec/fixtures/players.csv') }
     let(:csv_file_with_dup) { File.expand_path('spec/fixtures/players_with_existing.csv') }
     subject                 { BaseballStats::Import.import_players_from_csv(csv_file) }

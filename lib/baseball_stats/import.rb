@@ -10,6 +10,14 @@ Dir[File.expand_path('../../../db/migrate/*.rb', __FILE__)].each {|f| require f 
 module BaseballStats::Import
   extend self
 
+  SEED_BATTINGS_CSV = File.expand_path('../../../sample_data/battings.csv', __FILE__)
+  SEED_PLAYERS_CSV  = File.expand_path('../../../sample_data/players.csv', __FILE__)
+
+  def seed_data
+    import_battings_from_csv(SEED_BATTINGS_CSV)
+    import_players_from_csv(SEED_PLAYERS_CSV)
+  end
+
   def import_battings_from_csv(csv_file)
     CreateBattings.up unless ActiveRecord::Base.connection.table_exists?('battings')
     CSV.foreach(csv_file, headers: true, header_converters: :symbol) do |batting|

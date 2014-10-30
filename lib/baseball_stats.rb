@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'active_record'
 require 'sqlite3'
+require 'colorize'
+require 'table_print'
 
 require "baseball_stats/batting"
 require "baseball_stats/player"

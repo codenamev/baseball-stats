@@ -1,4 +1,4 @@
-# coding: utf-8
+# encoding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'baseball_stats/version'
@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["valentino@reenhanced.com"]
   spec.description   = %q{Generates baseball player statistics}
   spec.summary       = %q{Generates baseball player statistics}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/codenamev/baseball-stats"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,7 +20,9 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "activerecord", "~> 4.1.6"
   spec.add_dependency "active_record_migrations", "~> 4.1.6.1"
+  spec.add_dependency "colorize", "~> 0.7.3"
   spec.add_dependency "sqlite3", "~> 1.3.9"
+  spec.add_dependency "table_print", "~> 1.1.5"
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "database_cleaner"
