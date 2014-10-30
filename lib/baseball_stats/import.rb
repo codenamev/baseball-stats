@@ -14,14 +14,20 @@ module BaseballStats::Import
   SEED_PLAYERS_CSV  = File.expand_path('../../../sample_data/players.csv', __FILE__)
 
   def seed_data
-    import_battings_from_csv(SEED_BATTINGS_CSV)
     import_players_from_csv(SEED_PLAYERS_CSV)
+    import_battings_from_csv(SEED_BATTINGS_CSV)
   end
 
   def import_battings_from_csv(csv_file)
     CreateBattings.up unless ActiveRecord::Base.connection.table_exists?('battings')
     CSV.foreach(csv_file, headers: true, header_converters: :symbol) do |batting|
-      new_batting                       = BaseballStats::Batting.find_or_create_by(player_id: batting[:player_id], year_id: batting[:year_id])
+      new_batting                       = BaseballStats::Batting.find_or_create_by(
+        player_id: batting[:player_id],
+        year_id: batting[:year_id],
+        league: batting[:league],
+        team_id: batting[:team_id]
+      )
+
       new_batting.league                = batting[:league]
       new_batting.team_id               = batting[:team_id]
       new_batting.appearances           = batting[:appearances]

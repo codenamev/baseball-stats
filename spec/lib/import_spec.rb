@@ -16,7 +16,7 @@ describe BaseballStats::Import do
     subject                 { BaseballStats::Import.import_battings_from_csv(csv_file) }
 
     it 'imports all battings into the database' do
-      expect{ subject }.to change{ BaseballStats::Batting.count }.to 16
+      expect{ subject }.to change{ BaseballStats::Batting.count }.to 17
     end
 
     it "only imports battings that don't yet exist" do

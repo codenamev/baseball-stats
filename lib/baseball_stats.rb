@@ -35,9 +35,9 @@ module BaseballStats
   end
 
   def slugging_percentage_for_team_and_year(team_id, year)
-    battings_for_team = Batting.includes(:player).with_slugging_percentage.where(team_id: team_id, year_id: year)
+    battings_for_team = Batting.includes(:player).with_slugging_percentage.where(team_id: team_id, year_id: year).order('slugging_percentage DESC')
     battings_for_team.collect {|batting|
-      { player: batting.player_name, slugging_percentage: "#{(batting.slugging_percentage.to_f * 100).round(2)}%" }
+      { player: batting.player_name, slugging_percentage: "#{batting.slugging_percentage.to_f.round(3)}" }
     }
   end
 
