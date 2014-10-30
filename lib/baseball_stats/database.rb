@@ -27,7 +27,7 @@ module BaseballStats
     end
 
     def connection
-      ::ActiveRecord::Base.logger = Logger.new("log/#{self.env}.log")
+      ::ActiveRecord::Base.logger = Logger.new(File.join(@root_path, "log", "#{self.env}.log"))
       ::ActiveRecord::Base.establish_connection(configuration[self.env])
     end
   end

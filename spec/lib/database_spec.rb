@@ -33,7 +33,7 @@ describe BaseballStats::Database do
     subject { BaseballStats::Database.connection }
 
     it 'estabilishes a logger' do
-      expect(Logger).to receive(:new).with('log/test.log')
+      expect(Logger).to receive(:new).with(File.expand_path('../../../log/test.log', __FILE__))
       subject
     end
 
