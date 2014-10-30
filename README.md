@@ -18,12 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+After installing the gem, running `baseball_stats` from the command-line will
+display the results to the following excersize:
 
-## Contributing
+1. Most improved batting average from 2009 to 2010
+2. Slugging percentage for all players on the Oakland A's in 2007
+3. Who was the AL and NL tripple crown winner for 2011 and 2012.  If no one won
+   the crown should be "(No winner)"
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+## NOTES
+
+The first run of the command imports two fairly large CSV files with sample
+data into an SQLite3 database.  This may take up to 5 minutes depending on your machine.
