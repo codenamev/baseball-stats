@@ -13,9 +13,9 @@ module BaseballStats
     @env              = nil
     @logger           = nil
     @connection       = nil
-    @configuration    = YAML::load(IO.read('db/config.yml')).freeze
     @root_path        = File.expand_path('../../..', __FILE__).freeze
     @db_dir           = File.join(@root_path, 'db').freeze
+    @configuration    = YAML::load(IO.read("#{@db_dir}/config.yml")).freeze
     @migrations_paths = [File.join(@root_path, 'db/migrate')].freeze
 
     attr_accessor :configuration, :db_dir, :migrations_paths
