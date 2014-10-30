@@ -4,6 +4,8 @@ require 'active_record'
 require 'shoulda/matchers'
 require 'database_cleaner'
 require 'factory_girl'
+require 'faker'
+require 'pry'
 
 $LOAD_PATH << 'lib'
 require 'baseball_stats'

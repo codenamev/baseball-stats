@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :player do |n|
-    "player#{n}"
+    "player#{n}".bytes.join
   end
 
   sequence :year do |n|
@@ -26,5 +26,11 @@ FactoryGirl.define do
     runs_batted_in        { rand(200) }
     stolen_bases          { rand(200) }
     times_caught_stealing { rand(200) }
+  end
+
+  factory :player, class: BaseballStats::Player do
+    birth_year { generate(:year) }
+    first_name { Faker::Name.first_name }
+    last_name  { Faker::Name.last_name }
   end
 end
