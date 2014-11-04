@@ -27,7 +27,7 @@ module BaseballStats
       next unless prev_year_batting = battings_for_previous_year.where(player_id: batting.player_id).first
       improvement = batting.batting_average - prev_year_batting.batting_average
       next unless improvement > most_improved_batting_average
-      most_improved_batting_average = batting.batting_average
+      most_improved_batting_average = improvement
       most_improved_player = batting.player_id
     end
 
